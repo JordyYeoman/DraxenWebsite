@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import NavbarMenuLi from "./Navbar-menu-li";
 
@@ -58,17 +58,17 @@ const NavbarMenu = () => {
     calcPos(info, event);
   }
 
-  const [rotation, setRotation] = useState(0);
-  const [position, setPosition] = useState({
-    obj1XPos: 0,
-    obj1YPos: 0,
-    obj2XPos: 0,
-    obj2YPos: 0,
-    obj2XPos: 0,
-    obj2YPos: 0,
-    obj2XPos: 0,
-    obj2YPos: 0,
-  });
+  const [rotation, setRotation] = useState(90);
+  // const [position, setPosition] = useState({
+  //   obj1XPos: 0,
+  //   obj1YPos: 0,
+  //   obj2XPos: 0,
+  //   obj2YPos: 0,
+  //   obj2XPos: 0,
+  //   obj2YPos: 0,
+  //   obj2XPos: 0,
+  //   obj2YPos: 0,
+  // });
 
   // If item 3 is clicked, calc where item 3 is & how many rotations it needs to do.
 

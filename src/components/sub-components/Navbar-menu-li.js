@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
@@ -35,30 +35,143 @@ const NavbarMenuCircleLi4 = styled.li.attrs((props) => ({}))`
   top: ${(props) => props.rotateMenuPos[3].top};
 `;
 
+// Calculate Position of Circles
+// function calcPos() {
+//   if
+// }
+
 const NavbarMenuLi = (props) => {
+  // Initialized State:
+  const [wCirclePos, setWCirclePos] = useState({ x: 0, y: 0, pos: 0 });
+  const [gCirclePos, setGCirclePos] = useState({ x: 0, y: 0, pos: 0 });
+  const [pCirclePos, setPCirclePos] = useState({ x: 0, y: 0, pos: 0 });
+  const [oCirclePos, setOCirclePos] = useState({ x: 0, y: 0, pos: 0 });
+
+  const [wRotation, setWRotation] = useState(90);
+
   const liContainerRef1 = useRef(0);
   const liContainerRef2 = useRef(0);
   const liContainerRef3 = useRef(0);
   const liContainerRef4 = useRef(0);
 
-  const [circlePos, setCirclePos] = useState(0);
+  // On component mount, collect the circle position data and update the state.
+  useEffect(() => {
+    console.log("Runs after render?");
+  }, []);
+
+  const liContainerRef1Pos = useCallback((node) => {
+    if (node !== null) {
+      // setHeight(node.getBoundingClientRect().height);
+      const input = node.getBoundingClientRect();
+      // Update State with new position
+      setWCirclePos({ ...wCirclePos, x: input.x, y: input.y });
+    }
+  }, []);
+
+  const liContainerRef2Pos = useCallback((node) => {
+    if (node !== null) {
+      // setHeight(node.getBoundingClientRect().height);
+      const input = node.getBoundingClientRect();
+      // Update State with new position
+      setPCirclePos({ ...pCirclePos, x: input.x, y: input.y });
+    }
+  }, []);
+
+  const liContainerRef3Pos = useCallback((node) => {
+    if (node !== null) {
+      // setHeight(node.getBoundingClientRect().height);
+      const input = node.getBoundingClientRect();
+      // Update State with new position
+      setOCirclePos({ ...oCirclePos, x: input.x, y: input.y });
+    }
+  }, []);
+
+  const liContainerRef4Pos = useCallback((node) => {
+    if (node !== null) {
+      // setHeight(node.getBoundingClientRect().height);
+      const input = node.getBoundingClientRect();
+      // Update State with new position
+      setGCirclePos({ ...gCirclePos, x: input.x, y: input.y });
+    }
+  }, []);
+
+  function reCalcPos() {
+    const input = liContainerRef1.current.getBoundingClientRect();
+    // Update State with new position
+    setWCirclePos({ ...wCirclePos, x: input.x, y: input.y });
+
+    const input2 = liContainerRef2.current.getBoundingClientRect();
+    setPCirclePos({ ...pCirclePos, x: input2.x, y: input2.y });
+
+    const input3 = liContainerRef3.current.getBoundingClientRect();
+    setOCirclePos({ ...oCirclePos, x: input3.x, y: input3.y });
+
+    const input4 = liContainerRef4.current.getBoundingClientRect();
+    setGCirclePos({ ...gCirclePos, x: input4.x, y: input4.y });
+
+    console.log(
+      "FIRST RUN",
+      "WhiteX:  " + wCirclePos.x,
+      "WhiteY:  " + wCirclePos.y,
+      "WhitePos:  " + wCirclePos.pos
+    );
+
+    if (wCirclePos.y > 45 && wCirclePos.y < 55) {
+      //setWCirclePos({ ...wCirclePos, pos: 4 });\
+      props.setRotation(180);
+      console.log("Position 4");
+    } else if (wCirclePos.y > 12 && wCirclePos.y < 15) {
+      //setWCirclePos({ ...wCirclePos, pos: 1 });
+      props.setRotation(360);
+      console.log("Position 1");
+    } else if (wCirclePos.y > 33 && wCirclePos.y < 35) {
+      props.setRotation(90);
+      console.log("Position 3");
+    } else if (wCirclePos.y > 19.5 && wCirclePos.y < 21) {
+      props.setRotation(270);
+      console.log("Position 2");
+    } else {
+      props.setRotation(90);
+      console.log("Position 1");
+    }
+
+    // Test
+
+    //console.log("PinkX:  " + pCirclePos.x, "PinkY:  " + pCirclePos.y);
+    //console.log("OrangeX:  " + oCirclePos.x, "OrangeY:  " + oCirclePos.y);
+    //console.log("GreenX:  " + gCirclePos.x, "GreenY:  " + gCirclePos.y);
+  }
+
+  //console.log(wCirclePos, pCirclePos, oCirclePos, gCirclePos);
+
+  // const input = liContainerRef1.current.getBoundingClientRect();
+  // // Update State with new position
+  // setWCirclePos({ ...wCirclePos, x: input.x, y: input.y });
+  // console.log("WhiteX:  " + wCirclePos.x, "WhiteY:  " + wCirclePos.y);
+  // document.title = `${wCirclePos.x}`;
+  // const input2 = liContainerRef2.current.getBoundingClientRect();
+  // setPCirclePos({ ...pCirclePos, x: input2.x, y: input2.y });
+  // console.log("PinkX:  " + pCirclePos.x, "PinkY:  " + pCirclePos.y);
+  // const input3 = liContainerRef3.current.getBoundingClientRect();
+  // setOCirclePos({ ...oCirclePos, x: input3.x, y: input3.y });
+  // console.log("OrangeX:  " + oCirclePos.x, "OrangeY:  " + oCirclePos.y);
+  // const input4 = liContainerRef4.current.getBoundingClientRect();
+  // setGCirclePos({ ...gCirclePos, x: input4.x, y: input4.y });
+  // console.log("GreenX:  " + gCirclePos.x, "GreenY:  " + gCirclePos.y);
 
   return (
     <>
       <NavbarMenuCircleLi1
+        ref={liContainerRef1Pos}
         ref={liContainerRef1}
         onClick={() => {
+          reCalcPos();
           //   const { offsetTop } = props.inputRef.current;
           //   const { offsetLeft } = props.inputRef.current;
           //   const { clientHeight } = props.inputRef.current;
           //   const { clientTop } = props.inputRef.current;
           //   const { clientLeft } = props.inputRef.current;
-          const input = liContainerRef1.current.getBoundingClientRect();
-          const posX = input.x;
-          const posY = input.y;
-          console.log("WhiteX:  " + posX, "WhiteY:  " + posY);
           //getPosition();
-          //props.setRotation(props.rotation - 90);
         }}
         rotateMenuPos={props.rotateMenuPos}
       >
@@ -84,6 +197,7 @@ const NavbarMenuLi = (props) => {
         </motion.svg>
       </NavbarMenuCircleLi1>
       <NavbarMenuCircleLi2
+        ref={liContainerRef2Pos}
         ref={liContainerRef2}
         onClick={() => {
           //   const { offsetTop } = props.inputRef.current;
@@ -91,10 +205,6 @@ const NavbarMenuLi = (props) => {
           //   const { clientHeight } = props.inputRef.current;
           //   const { clientTop } = props.inputRef.current;
           //   const { clientLeft } = props.inputRef.current;
-          const input = liContainerRef2.current.getBoundingClientRect();
-          const posX = input.x;
-          const posY = input.y;
-          console.log("PinkX:  " + posX, "PinkY:  " + posY);
           //getPosition();
           //props.setRotation(props.rotation - 90);
         }}
@@ -121,6 +231,7 @@ const NavbarMenuLi = (props) => {
         </motion.svg>
       </NavbarMenuCircleLi2>
       <NavbarMenuCircleLi3
+        ref={liContainerRef3Pos}
         ref={liContainerRef3}
         onClick={() => {
           //   const { offsetTop } = props.inputRef.current;
@@ -128,10 +239,6 @@ const NavbarMenuLi = (props) => {
           //   const { clientHeight } = props.inputRef.current;
           //   const { clientTop } = props.inputRef.current;
           //   const { clientLeft } = props.inputRef.current;
-          const input = liContainerRef3.current.getBoundingClientRect();
-          const posX = input.x;
-          const posY = input.y;
-          console.log("OrangeX:  " + posX, "OrangeY:  " + posY);
           //getPosition();
           //props.setRotation(props.rotation - 90);
         }}
@@ -158,6 +265,7 @@ const NavbarMenuLi = (props) => {
         </motion.svg>
       </NavbarMenuCircleLi3>
       <NavbarMenuCircleLi4
+        ref={liContainerRef4Pos}
         ref={liContainerRef4}
         onClick={() => {
           //   const { offsetTop } = props.inputRef.current;
@@ -165,10 +273,6 @@ const NavbarMenuLi = (props) => {
           //   const { clientHeight } = props.inputRef.current;
           //   const { clientTop } = props.inputRef.current;
           //   const { clientLeft } = props.inputRef.current;
-          const input = liContainerRef4.current.getBoundingClientRect();
-          const posX = input.x;
-          const posY = input.y;
-          console.log("GreenX:  " + posX, "GreenY:  " + posY);
           //getPosition();
           //props.setRotation(props.rotation - 90);
         }}

@@ -1,0 +1,129 @@
+  // Initialized State:
+  const [wCirclePos, setWCirclePos] = useState({ x: 0, y: 0, pos: 0 });
+  const [gCirclePos, setGCirclePos] = useState({ x: 0, y: 0, pos: 0 });
+  const [pCirclePos, setPCirclePos] = useState({ x: 0, y: 0, pos: 0 });
+  const [oCirclePos, setOCirclePos] = useState({ x: 0, y: 0, pos: 0 });
+
+
+// const liContainerRef1Pos = useCallback((node) => {
+//   if (node !== null) {
+//     // setHeight(node.getBoundingClientRect().height);
+//     const input = node.getBoundingClientRect();
+//     // Update State with new position
+//     setWCirclePos({ ...wCirclePos, x: input.x, y: input.y });
+//   }
+// }, []);
+
+// const liContainerRef2Pos = useCallback((node) => {
+//   if (node !== null) {
+//     // setHeight(node.getBoundingClientRect().height);
+//     const input = node.getBoundingClientRect();
+//     // Update State with new position
+//     setPCirclePos({ ...pCirclePos, x: input.x, y: input.y });
+//   }
+// }, []);
+
+// const liContainerRef3Pos = useCallback((node) => {
+//   if (node !== null) {
+//     // setHeight(node.getBoundingClientRect().height);
+//     const input = node.getBoundingClientRect();
+//     // Update State with new position
+//     setOCirclePos({ ...oCirclePos, x: input.x, y: input.y });
+//   }
+// }, []);
+
+// const liContainerRef4Pos = useCallback((node) => {
+//   if (node !== null) {
+//     // setHeight(node.getBoundingClientRect().height);
+//     const input = node.getBoundingClientRect();
+//     // Update State with new position
+//     setGCirclePos({ ...gCirclePos, x: input.x, y: input.y });
+//   }
+// }, []);
+
+// function reCalcPos() {
+//   console.log(props.circleContainer.x);
+//   const input = liContainerRef1.current.getBoundingClientRect();
+//   // Update State with new position
+
+//   console.log(wCirclePos.x);
+//   setWCirclePos({ ...wCirclePos, x: input.x, y: input.y });
+
+//   const input2 = liContainerRef2.current.getBoundingClientRect();
+//   setPCirclePos({ ...pCirclePos, x: input2.x, y: input2.y });
+
+//   const input3 = liContainerRef3.current.getBoundingClientRect();
+//   setOCirclePos({ ...oCirclePos, x: input3.x, y: input3.y });
+
+//   const input4 = liContainerRef4.current.getBoundingClientRect();
+//   setGCirclePos({ ...gCirclePos, x: input4.x, y: input4.y });
+
+//   console.log(
+//     "FIRST RUN",
+//     "WhiteX:  " + wCirclePos.x,
+//     "WhiteY:  " + wCirclePos.y,
+//     "WhitePos:  " + wCirclePos.pos
+//   );
+
+//   if (
+//     wCirclePos.y > 45 &&
+//     wCirclePos.y < 55 &&
+//     wCirclePos.x - props.circleContainer.x >
+//       oCirclePos.x - props.circleContainer.x
+//   ) {
+//     setWCirclePos({ ...wCirclePos, pos: 3 });
+//     props.setRotation(0);
+//     console.log("Position 3");
+//   } else if (
+//     wCirclePos.y > 12 &&
+//     wCirclePos.y < 17 &&
+//     oCirclePos.x - props.circleContainer.x >
+//       wCirclePos.x - props.circleContainer.x
+//   ) {
+//     //setWCirclePos({ ...wCirclePos, pos: 1 });
+//     props.setRotation(90);
+//     console.log("Position 1");
+//   } else if (
+//     wCirclePos.y > 33 &&
+//     wCirclePos.y < 35 &&
+//     pCirclePos.x - props.circleContainer.x >
+//       gCirclePos.x - props.circleContainer.x
+//   ) {
+//     props.setRotation(0);
+//     console.log("Position 2");
+//   } else if (
+//     wCirclePos.y > 19.5 &&
+//     wCirclePos.y < 21 &&
+//     gCirclePos.x - props.circleContainer.x >
+//       pCirclePos.x - props.circleContainer.x
+//   ) {
+//     props.setRotation(270);
+//     console.log("Position 4");
+//   } else {
+//     props.setRotation(0);
+//     console.log("Position 1-noentry");
+//   }
+
+//   // Test
+
+//   //console.log("PinkX:  " + pCirclePos.x, "PinkY:  " + pCirclePos.y);
+//   //console.log("OrangeX:  " + oCirclePos.x, "OrangeY:  " + oCirclePos.y);
+//   //console.log("GreenX:  " + gCirclePos.x, "GreenY:  " + gCirclePos.y);
+// }
+
+//console.log(wCirclePos, pCirclePos, oCirclePos, gCirclePos);
+
+// const input = liContainerRef1.current.getBoundingClientRect();
+// // Update State with new position
+// setWCirclePos({ ...wCirclePos, x: input.x, y: input.y });
+// console.log("WhiteX:  " + wCirclePos.x, "WhiteY:  " + wCirclePos.y);
+// document.title = `${wCirclePos.x}`;
+// const input2 = liContainerRef2.current.getBoundingClientRect();
+// setPCirclePos({ ...pCirclePos, x: input2.x, y: input2.y });
+// console.log("PinkX:  " + pCirclePos.x, "PinkY:  " + pCirclePos.y);
+// const input3 = liContainerRef3.current.getBoundingClientRect();
+// setOCirclePos({ ...oCirclePos, x: input3.x, y: input3.y });
+// console.log("OrangeX:  " + oCirclePos.x, "OrangeY:  " + oCirclePos.y);
+// const input4 = liContainerRef4.current.getBoundingClientRect();
+// setGCirclePos({ ...gCirclePos, x: input4.x, y: input4.y });
+// console.log("GreenX:  " + gCirclePos.x, "GreenY:  " + gCirclePos.y);

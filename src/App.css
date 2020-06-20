@@ -62,7 +62,14 @@ ul {
 
 .NavbarMenuUl {
   width: 150px;
-  height: 10vh;
-
+  height: 150px;
   position: relative;
+}
+
+.NavbarMenuUl li {
+  cursor: pointer;
+  font-family: "Oxanium-ExtraLight";
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 4px;
 }

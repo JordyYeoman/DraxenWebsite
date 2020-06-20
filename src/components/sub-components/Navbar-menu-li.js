@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect, useCallback } from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useCycle } from "framer-motion";
 import styled from "styled-components";
 
 // Styled Component, moved underneath Navbar-Menu component
@@ -41,14 +41,32 @@ const NavbarMenuCircleLi4 = styled.li.attrs((props) => ({}))`
 // }
 
 const NavbarMenuLi = (props) => {
-  // Initialized State:
-  const [wCirclePos, setWCirclePos] = useState({ x: 0, y: 0, pos: 0 });
-  const [gCirclePos, setGCirclePos] = useState({ x: 0, y: 0, pos: 0 });
-  const [pCirclePos, setPCirclePos] = useState({ x: 0, y: 0, pos: 0 });
-  const [oCirclePos, setOCirclePos] = useState({ x: 0, y: 0, pos: 0 });
+  const menuVariants = {
+    open: {
+      opacity: 0,
+      scale: 0,
+      rotate: -45,
+    },
+    closed: {
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        duration: 0.4,
+      },
+    },
+  };
 
-  const [wRotation, setWRotation] = useState(90);
+  //const [wRotation, setWRotation] = useState(90);
 
+  const [isOpen, setIsOpen] = useState({
+    whiteCircle: false,
+    pinkCircle: false,
+    orangeCircle: false,
+    greenCircle: false,
+  });
+
+  //const [isOpen, toggleOpen] = useCycle(false, true);
   const liContainerRef1 = useRef(0);
   const liContainerRef2 = useRef(0);
   const liContainerRef3 = useRef(0);
@@ -56,116 +74,18 @@ const NavbarMenuLi = (props) => {
 
   // On component mount, collect the circle position data and update the state.
   useEffect(() => {
-    console.log("Runs after render?");
+    console.log("Starting Application...");
   }, []);
-
-  const liContainerRef1Pos = useCallback((node) => {
-    if (node !== null) {
-      // setHeight(node.getBoundingClientRect().height);
-      const input = node.getBoundingClientRect();
-      // Update State with new position
-      setWCirclePos({ ...wCirclePos, x: input.x, y: input.y });
-    }
-  }, []);
-
-  const liContainerRef2Pos = useCallback((node) => {
-    if (node !== null) {
-      // setHeight(node.getBoundingClientRect().height);
-      const input = node.getBoundingClientRect();
-      // Update State with new position
-      setPCirclePos({ ...pCirclePos, x: input.x, y: input.y });
-    }
-  }, []);
-
-  const liContainerRef3Pos = useCallback((node) => {
-    if (node !== null) {
-      // setHeight(node.getBoundingClientRect().height);
-      const input = node.getBoundingClientRect();
-      // Update State with new position
-      setOCirclePos({ ...oCirclePos, x: input.x, y: input.y });
-    }
-  }, []);
-
-  const liContainerRef4Pos = useCallback((node) => {
-    if (node !== null) {
-      // setHeight(node.getBoundingClientRect().height);
-      const input = node.getBoundingClientRect();
-      // Update State with new position
-      setGCirclePos({ ...gCirclePos, x: input.x, y: input.y });
-    }
-  }, []);
-
-  function reCalcPos() {
-    const input = liContainerRef1.current.getBoundingClientRect();
-    // Update State with new position
-    setWCirclePos({ ...wCirclePos, x: input.x, y: input.y });
-
-    const input2 = liContainerRef2.current.getBoundingClientRect();
-    setPCirclePos({ ...pCirclePos, x: input2.x, y: input2.y });
-
-    const input3 = liContainerRef3.current.getBoundingClientRect();
-    setOCirclePos({ ...oCirclePos, x: input3.x, y: input3.y });
-
-    const input4 = liContainerRef4.current.getBoundingClientRect();
-    setGCirclePos({ ...gCirclePos, x: input4.x, y: input4.y });
-
-    console.log(
-      "FIRST RUN",
-      "WhiteX:  " + wCirclePos.x,
-      "WhiteY:  " + wCirclePos.y,
-      "WhitePos:  " + wCirclePos.pos
-    );
-
-    if (wCirclePos.y > 45 && wCirclePos.y < 55) {
-      //setWCirclePos({ ...wCirclePos, pos: 4 });\
-      props.setRotation(180);
-      console.log("Position 4");
-    } else if (wCirclePos.y > 12 && wCirclePos.y < 15) {
-      //setWCirclePos({ ...wCirclePos, pos: 1 });
-      props.setRotation(360);
-      console.log("Position 1");
-    } else if (wCirclePos.y > 33 && wCirclePos.y < 35) {
-      props.setRotation(90);
-      console.log("Position 3");
-    } else if (wCirclePos.y > 19.5 && wCirclePos.y < 21) {
-      props.setRotation(270);
-      console.log("Position 2");
-    } else {
-      props.setRotation(90);
-      console.log("Position 1");
-    }
-
-    // Test
-
-    //console.log("PinkX:  " + pCirclePos.x, "PinkY:  " + pCirclePos.y);
-    //console.log("OrangeX:  " + oCirclePos.x, "OrangeY:  " + oCirclePos.y);
-    //console.log("GreenX:  " + gCirclePos.x, "GreenY:  " + gCirclePos.y);
-  }
-
-  //console.log(wCirclePos, pCirclePos, oCirclePos, gCirclePos);
-
-  // const input = liContainerRef1.current.getBoundingClientRect();
-  // // Update State with new position
-  // setWCirclePos({ ...wCirclePos, x: input.x, y: input.y });
-  // console.log("WhiteX:  " + wCirclePos.x, "WhiteY:  " + wCirclePos.y);
-  // document.title = `${wCirclePos.x}`;
-  // const input2 = liContainerRef2.current.getBoundingClientRect();
-  // setPCirclePos({ ...pCirclePos, x: input2.x, y: input2.y });
-  // console.log("PinkX:  " + pCirclePos.x, "PinkY:  " + pCirclePos.y);
-  // const input3 = liContainerRef3.current.getBoundingClientRect();
-  // setOCirclePos({ ...oCirclePos, x: input3.x, y: input3.y });
-  // console.log("OrangeX:  " + oCirclePos.x, "OrangeY:  " + oCirclePos.y);
-  // const input4 = liContainerRef4.current.getBoundingClientRect();
-  // setGCirclePos({ ...gCirclePos, x: input4.x, y: input4.y });
-  // console.log("GreenX:  " + gCirclePos.x, "GreenY:  " + gCirclePos.y);
 
   return (
     <>
       <NavbarMenuCircleLi1
-        ref={liContainerRef1Pos}
+        //ref={liContainerRef1Pos}
         ref={liContainerRef1}
         onClick={() => {
-          reCalcPos();
+          console.log("White Clicked");
+          props.setRotation(0);
+          //reCalcPos();
           //   const { offsetTop } = props.inputRef.current;
           //   const { offsetLeft } = props.inputRef.current;
           //   const { clientHeight } = props.inputRef.current;
@@ -178,28 +98,68 @@ const NavbarMenuLi = (props) => {
         <motion.svg
           width={`${props.circleProperties.width}px`}
           height={`${props.circleProperties.height}px`}
-          viewBox="0 0 400 400"
+          viewBox="0 -20 25 60"
           title={`${props.rotateMenuPos[2].title}`}
           data-pos={props.rotateMenuPos[2].position}
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
           //positionTransition
-          onTap={props.onTap}
+          //
+          onClick={() => {
+            setIsOpen({
+              whiteCircle: !isOpen.whiteCircle,
+              pinkCircle: false,
+              orangeCircle: false,
+              greenCircle: false,
+            });
+          }}
+          //onTap={props.onTap}
         >
-          <circle
-            cx="400"
-            cy="250"
-            r="100"
-            fill="none"
+          <motion.path
+            opacity={1}
+            variants={menuVariants}
+            initial={true}
+            animate={isOpen.whiteCircle ? "open" : "closed"}
             stroke="white"
-            strokeWidth="50"
+            d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z"
+            strokeWidth="3"
+          />
+          <motion.path
+            variants={menuVariants}
+            initial={false}
+            animate={isOpen.whiteCircle ? "closed" : "open"}
+            stroke="white"
+            strokeWidth="3"
+            d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
           />
         </motion.svg>
+
+        {isOpen.whiteCircle ? (
+          <motion.div
+            initial={{ opacity: 0, marginTop: -10, marginLeft: -7 }}
+            animate={{
+              opacity: 1,
+
+              marginTop: 4,
+            }}
+            transition={{
+              duration: 0.5,
+              delay: 0.25,
+              ease: "easeIn",
+            }}
+          >
+            Menu
+          </motion.div>
+        ) : (
+          ""
+        )}
       </NavbarMenuCircleLi1>
       <NavbarMenuCircleLi2
-        ref={liContainerRef2Pos}
+        //ref={liContainerRef2Pos}
         ref={liContainerRef2}
         onClick={() => {
+          props.setRotation(-90);
+          console.log("Pink Clicked");
           //   const { offsetTop } = props.inputRef.current;
           //   const { offsetLeft } = props.inputRef.current;
           //   const { clientHeight } = props.inputRef.current;
@@ -213,27 +173,70 @@ const NavbarMenuLi = (props) => {
         <motion.svg
           width={`${props.circleProperties.width}px`}
           height={`${props.circleProperties.height}px`}
-          viewBox="0 0 400 400"
+          viewBox="0 -20 25 60"
           title={`${props.rotateMenuPos[1].title}`}
           data-pos={props.rotateMenuPos[1].position}
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
-          onTap={props.onTap}
+          onClick={() => {
+            setIsOpen({
+              whiteCircle: false,
+              pinkCircle: !isOpen.pinkCircle,
+              orangeCircle: false,
+              greenCircle: false,
+            });
+          }}
+          //onTap={props.onTap}
         >
-          <circle
-            cx="400"
-            cy="250"
-            r="100"
-            fill="none"
+          <motion.path
+            opacity={1}
+            variants={menuVariants}
+            initial={true}
+            animate={isOpen.pinkCircle ? "open" : "closed"}
             stroke="pink"
-            strokeWidth="50"
+            strokeWidth="3"
+            d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z"
+          />
+          <motion.path
+            variants={menuVariants}
+            initial={false}
+            animate={isOpen.pinkCircle ? "closed" : "open"}
+            stroke="pink"
+            strokeWidth="3"
+            d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
           />
         </motion.svg>
+        {isOpen.pinkCircle ? (
+          <motion.div
+            initial={{
+              opacity: 0,
+              marginTop: -10,
+              rotate: 90,
+              marginTop: -18,
+              marginLeft: -42,
+            }}
+            animate={{
+              opacity: 1,
+              marginLeft: -58,
+            }}
+            transition={{
+              duration: 0.5,
+              delay: 0.25,
+              ease: "easeIn",
+            }}
+          >
+            Facebook
+          </motion.div>
+        ) : (
+          ""
+        )}
       </NavbarMenuCircleLi2>
       <NavbarMenuCircleLi3
-        ref={liContainerRef3Pos}
+        //ref={liContainerRef3Pos}
         ref={liContainerRef3}
         onClick={() => {
+          console.log("Orange Clicked");
+          props.setRotation(180);
           //   const { offsetTop } = props.inputRef.current;
           //   const { offsetLeft } = props.inputRef.current;
           //   const { clientHeight } = props.inputRef.current;
@@ -247,27 +250,70 @@ const NavbarMenuLi = (props) => {
         <motion.svg
           width={`${props.circleProperties.width}px`}
           height={`${props.circleProperties.height}px`}
-          viewBox="0 0 400 400"
+          viewBox="0 -20 25 60"
           title={`${props.rotateMenuPos[3].title}`}
           data-pos={props.rotateMenuPos[3].position}
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
-          onTap={props.onTap}
+          onClick={() => {
+            setIsOpen({
+              whiteCircle: false,
+              pinkCircle: false,
+              orangeCircle: !isOpen.orangeCircle,
+              greenCircle: false,
+            });
+          }}
+          //onTap={props.onTap}
         >
-          <circle
-            cx="400"
-            cy="250"
-            r="100"
-            fill="none"
+          <motion.path
+            opacity={1}
+            variants={menuVariants}
+            initial={true}
+            animate={isOpen.orangeCircle ? "open" : "closed"}
             stroke="orange"
-            strokeWidth="50"
+            strokeWidth="3"
+            d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z"
+          />
+          <motion.path
+            variants={menuVariants}
+            initial={false}
+            animate={isOpen.orangeCircle ? "closed" : "open"}
+            stroke="orange"
+            strokeWidth="3"
+            d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
           />
         </motion.svg>
+        {isOpen.orangeCircle ? (
+          <motion.div
+            initial={{
+              opacity: 0,
+              marginTop: -10,
+              rotate: 180,
+              marginTop: -35,
+              marginLeft: -27,
+            }}
+            animate={{
+              opacity: 1,
+              marginTop: -49,
+            }}
+            transition={{
+              duration: 0.5,
+              delay: 0.3,
+              ease: "easeIn",
+            }}
+          >
+            Contact
+          </motion.div>
+        ) : (
+          ""
+        )}
       </NavbarMenuCircleLi3>
       <NavbarMenuCircleLi4
-        ref={liContainerRef4Pos}
+        //ref={liContainerRef4Pos}
         ref={liContainerRef4}
         onClick={() => {
+          console.log("Green Clicked");
+          props.setRotation(90);
           //   const { offsetTop } = props.inputRef.current;
           //   const { offsetLeft } = props.inputRef.current;
           //   const { clientHeight } = props.inputRef.current;
@@ -281,22 +327,64 @@ const NavbarMenuLi = (props) => {
         <motion.svg
           width={`${props.circleProperties.width}px`}
           height={`${props.circleProperties.height}px`}
-          viewBox="0 0 400 400"
+          viewBox="0 -20 25 60"
           title={`${props.rotateMenuPos[0].title}`}
           data-pos={props.rotateMenuPos[0].position}
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
-          onTap={props.onTap}
+          onClick={() => {
+            setIsOpen({
+              whiteCircle: false,
+              pinkCircle: false,
+              orangeCircle: false,
+              greenCircle: !isOpen.greenCircle,
+            });
+          }}
+          //onTap={props.onTap}
         >
-          <circle
-            cx="400"
-            cy="250"
-            r="100"
-            fill="none"
+          <motion.path
+            opacity={1}
+            variants={menuVariants}
+            initial={true}
+            animate={isOpen.greenCircle ? "open" : "closed"}
             stroke="lime"
-            strokeWidth="50"
+            strokeWidth="3"
+            d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12z"
+          />
+
+          <motion.path
+            variants={menuVariants}
+            initial={false}
+            animate={isOpen.greenCircle ? "closed" : "open"}
+            stroke="lime"
+            strokeWidth="3"
+            d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
           />
         </motion.svg>
+        {isOpen.greenCircle ? (
+          <motion.div
+            initial={{
+              opacity: 0,
+              marginTop: -10,
+              rotate: 270,
+              marginTop: -25,
+              marginLeft: -14,
+            }}
+            animate={{
+              opacity: 1,
+              marginLeft: 2,
+            }}
+            transition={{
+              duration: 0.5,
+              delay: 0.3,
+              ease: "easeIn",
+            }}
+          >
+            Youtube
+          </motion.div>
+        ) : (
+          ""
+        )}
       </NavbarMenuCircleLi4>
     </>
   );

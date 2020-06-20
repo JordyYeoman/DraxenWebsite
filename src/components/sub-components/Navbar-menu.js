@@ -1,11 +1,18 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
+import NavRight from "./Navbar-menu-right";
 import NavbarMenuLi from "./Navbar-menu-li";
 
 const NavbarMenu = () => {
+  const [circleContainer, setCircleContainer] = useState({
+    x: 0,
+    y: 0,
+    pos: 0,
+  });
+
   const circleProperties = {
-    width: 40,
-    height: 18,
+    width: 30,
+    height: 30,
   };
 
   // Store this as a state value
@@ -35,8 +42,8 @@ const NavbarMenu = () => {
       left: 0,
     },
   ];
-  const sectionDeg = 360 / rotateMenuPos.length;
-  const radiusLength = 20;
+  const sectionDeg = 360 / 4;
+  const radiusLength = 25;
   const radianSectionDeg = (sectionDeg * Math.PI * 2) / 360;
 
   rotateMenuPos.forEach((item, index) => {
@@ -58,7 +65,7 @@ const NavbarMenu = () => {
     calcPos(info, event);
   }
 
-  const [rotation, setRotation] = useState(90);
+  const [rotation, setRotation] = useState(0);
   // const [position, setPosition] = useState({
   //   obj1XPos: 0,
   //   obj1YPos: 0,
@@ -75,19 +82,25 @@ const NavbarMenu = () => {
   // Set initial position of circle elements
   rotateMenuPos.forEach((item, index) => {
     item.top =
-      (radiusLength * Math.sin(radianSectionDeg * index - 1.5708) - 30) * -1 +
+      (radiusLength * Math.sin(radianSectionDeg * index - 1.5708) - 60) * -1 +
       "px";
     item.left =
-      (radiusLength * Math.cos(radianSectionDeg * index - 1.5708) - 45) * -1 +
+      (radiusLength * Math.cos(radianSectionDeg * index - 1.5708) - 60) * -1 +
       "px";
   });
 
-  const [top, setTop] = useState(0);
-  //const circleRef1 = useRef(0);
-  const containerRef = useRef(0);
+  const containerRef = useCallback((node) => {
+    if (node !== null) {
+      // setHeight(node.getBoundingClientRect().height);
+      const input = node.getBoundingClientRect();
+      // Update State with new position
+      setCircleContainer({ ...circleContainer, x: input.x, y: input.y });
+    }
+  }, []);
 
-  // Get current position of circle
-  function getPosition() {}
+  //const [circleLeft, setCircleLeft] = useState(0);
+  //const circleRef1 = useRef(0);
+  //const containerRef = useRef(0);
 
   return (
     <div className="NavbarMenu">
@@ -106,14 +119,15 @@ const NavbarMenu = () => {
         transition={{ duration: 0.5 }}
       >
         <NavbarMenuLi
+          circleContainer={circleContainer}
           rotateMenuPos={rotateMenuPos}
           circleProperties={circleProperties}
-          //inputRef={circleRef1}
           setRotation={setRotation}
           rotation={rotation}
           onTap={onTap}
         />
       </motion.ul>
+      <NavRight />
     </div>
   );
 };

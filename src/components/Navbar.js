@@ -5,7 +5,6 @@ const Navbar = () => {
   return (
     <div>
       <NavbarMenu />
-      <div className="navbar">Hello I am the Navbar component Navbar</div>
     </div>
   );
 };

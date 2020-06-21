@@ -5,32 +5,39 @@ ul {
   padding: 0;
 }
 
+a,
+u {
+  text-decoration: none;
+  color: white;
+}
+
 .App {
   text-align: center;
   height: 100%;
   background-color: #282c34;
   color: white;
   font-weight: 600;
+  font-size: 12px;
 }
 
 .svg-LineOne {
   position: absolute;
   height: 100%;
-  padding-top: 10vh;
+  padding-top: 10.1vh;
   padding-left: 4vw;
 }
 
 .svg-LineTwo {
   position: absolute;
   height: 100%;
-  padding-top: 10vh;
+  padding-top: 10.1vh;
   padding-left: 50vw;
 }
 
 .svg-LineThree {
   position: absolute;
   height: 100%;
-  padding-top: 10vh;
+  padding-top: 10.1vh;
   padding-left: 75vw;
 }
 
@@ -46,10 +53,17 @@ ul {
 .hero {
   display: block;
   height: 80vh;
-  background-image: url(./assets/mechDraven.jpg);
+  /* background-image: url(./assets/mechDraven.jpg); */
   background-size: cover;
 }
 
+.backgroundImg {
+  height: 90vh;
+  width: 100%;
+  display: block;
+  background-image: url(./assets/mechDraven.jpg);
+  background-size: cover;
+}
 .NavbarMenu {
   position: relative;
   z-index: 999;
@@ -57,19 +71,80 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.5); */
   /* overflow: hidden; */
 }
 
 .NavbarMenuUl {
   width: 150px;
   height: 150px;
-  position: relative;
+  position: absolute;
 }
 
+.NavbarMenu::before {
+  content: "";
+  background: rgba(0, 100, 255, 1.2);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  height: 1px;
+  margin-bottom: -1px;
+  width: 18.1%;
+}
+
+.Navbar-Right-Container {
+  margin-left: auto;
+  margin-right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Navbar-Left-Container {
+  margin-right: auto;
+  margin-left: 50px;
+}
 .NavbarMenuUl li {
   cursor: pointer;
   font-family: "Oxanium-ExtraLight";
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 4px;
+}
+
+.button-container {
+  border: 1px solid white;
+  padding: 8px;
+  padding-left: 25px;
+  font-size: 12px;
+  padding-right: 25px;
+  clip-path: polygon(0 35%, 15% 0, 100% 0, 100% 65%, 85% 100%, 0 100%);
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  position: relative;
+}
+.searchButton {
+  margin-right: 10px;
+}
+.button-container::before {
+  border: 3px solid white;
+  content: "";
+  width: 66%;
+  position: absolute;
+  height: 1px;
+  top: 3px;
+  left: -34px;
+  transform: rotate(142deg);
+}
+
+.button-container::after {
+  border: 3px solid white;
+  content: "";
+  width: 66%;
+  position: absolute;
+  height: 0px;
+  top: 35px;
+  left: 41px;
+  transform: rotate(141deg);
 }

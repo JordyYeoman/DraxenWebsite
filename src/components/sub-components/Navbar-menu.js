@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import NavRight from "./Navbar-menu-right";
+import NavLeft from "./Navbar-menu-left";
 import NavbarMenuLi from "./Navbar-menu-li";
 
 const NavbarMenu = () => {
@@ -43,7 +44,7 @@ const NavbarMenu = () => {
     },
   ];
   const sectionDeg = 360 / 4;
-  const radiusLength = 25;
+  const radiusLength = 20;
   const radianSectionDeg = (sectionDeg * Math.PI * 2) / 360;
 
   rotateMenuPos.forEach((item, index) => {
@@ -103,7 +104,21 @@ const NavbarMenu = () => {
   //const containerRef = useRef(0);
 
   return (
-    <div className="NavbarMenu">
+    <motion.div
+      initial={{
+        borderBottomWidth: 0,
+        borderBottomStyle: "solid",
+        borderBottomColor: "rgba(255, 255, 255, 0)",
+      }}
+      animate={{
+        borderBottomWidth: 1,
+        borderBottomStyle: "solid",
+        borderBottomColor: "rgba(255, 255, 255, 0.5)",
+      }}
+      transition={{ duration: 3.5 }}
+      className="NavbarMenu"
+    >
+      <NavLeft />
       <motion.ul
         ref={containerRef}
         className="NavbarMenuUl"
@@ -128,7 +143,7 @@ const NavbarMenu = () => {
         />
       </motion.ul>
       <NavRight />
-    </div>
+    </motion.div>
   );
 };
 

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import NavRight from "./Navbar-menu-right";
 import NavLeft from "./Navbar-menu-left";
 import NavbarMenuLi from "./Navbar-menu-li";
+import TopNavBarVisual from "./topSectionNavbar";
 
 const NavbarMenu = () => {
   const [circleContainer, setCircleContainer] = useState({
@@ -104,46 +105,36 @@ const NavbarMenu = () => {
   //const containerRef = useRef(0);
 
   return (
-    <motion.div
-      initial={{
-        borderBottomWidth: 0,
-        borderBottomStyle: "solid",
-        borderBottomColor: "rgba(255, 255, 255, 0)",
-      }}
-      animate={{
-        borderBottomWidth: 1,
-        borderBottomStyle: "solid",
-        borderBottomColor: "rgba(255, 255, 255, 0.5)",
-      }}
-      transition={{ duration: 3.5 }}
-      className="NavbarMenu"
-    >
-      <NavLeft />
-      <motion.ul
-        ref={containerRef}
-        className="NavbarMenuUl"
-        // onClick={() => {
-        //   console.log(top);
-        //   const { offsetTop } = containerRef.current;
-        //   setTop(offsetTop);
-        //   console.log(offsetTop, top);
-        // }}
-        //whileHover={{ rotate: 270 }}
+    <>
+      <TopNavBarVisual />
+      <motion.div className="NavbarMenu">
+        <NavLeft />
+        <motion.ul
+          ref={containerRef}
+          className="NavbarMenuUl"
+          // onClick={() => {
+          //   console.log(top);
+          //   const { offsetTop } = containerRef.current;
+          //   setTop(offsetTop);
+          //   console.log(offsetTop, top);
+          // }}
+          //whileHover={{ rotate: 270 }}
 
-        animate={{ rotate: rotation }}
-        transition={{ duration: 0.5 }}
-      >
-        <NavbarMenuLi
-          circleContainer={circleContainer}
-          rotateMenuPos={rotateMenuPos}
-          circleProperties={circleProperties}
-          setRotation={setRotation}
-          rotation={rotation}
-          onTap={onTap}
-        />
-      </motion.ul>
-      <NavRight />
-    </motion.div>
+          animate={{ rotate: rotation }}
+          transition={{ duration: 0.5 }}
+        >
+          <NavbarMenuLi
+            circleContainer={circleContainer}
+            rotateMenuPos={rotateMenuPos}
+            circleProperties={circleProperties}
+            setRotation={setRotation}
+            rotation={rotation}
+            onTap={onTap}
+          />
+        </motion.ul>
+        <NavRight />
+      </motion.div>
+    </>
   );
 };
 

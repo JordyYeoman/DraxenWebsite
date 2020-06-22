@@ -1,5 +1,6 @@
 import React from "react";
 import Particles from "react-particles-js";
+import HeroTextSlideIn from "./sub-components/Hero-TextSlideIn";
 
 function mapStateToProps(state) {
   return {};
@@ -8,6 +9,7 @@ function mapStateToProps(state) {
 const Hero = () => {
   return (
     <div className="hero">
+      <HeroTextSlideIn />
       <Particles
         params={{
           particles: {

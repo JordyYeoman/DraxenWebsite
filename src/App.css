@@ -23,21 +23,21 @@ u {
 .svg-LineOne {
   position: absolute;
   height: 100%;
-  padding-top: 10.1vh;
+  padding-top: 10vh;
   padding-left: 4vw;
 }
 
 .svg-LineTwo {
   position: absolute;
   height: 100%;
-  padding-top: 10.1vh;
+  padding-top: 10vh;
   padding-left: 50vw;
 }
 
 .svg-LineThree {
   position: absolute;
   height: 100%;
-  padding-top: 10.1vh;
+  padding-top: 10vh;
   padding-left: 75vw;
 }
 
@@ -52,13 +52,13 @@ u {
 
 .hero {
   display: block;
-  height: 80vh;
+  height: 90vh;
   /* background-image: url(./assets/mechDraven.jpg); */
   background-size: cover;
 }
 
 .backgroundImg {
-  height: 90vh;
+  height: 98vh;
   width: 100%;
   display: block;
   background-image: url(./assets/mechDraven.jpg);
@@ -80,19 +80,45 @@ u {
   height: 150px;
   position: absolute;
 }
-
-.NavbarMenu::before {
+.borderSectionCover {
+  bottom: 0;
   content: "";
-  background: rgba(0, 100, 255, 1.2);
+  background: rgba(255, 255, 255, 0.5);
   position: absolute;
   bottom: 0;
-  left: 0;
-  z-index: -1;
-  height: 1px;
-  margin-bottom: -1px;
-  width: 18.1%;
+  left: 4vw;
+  margin-left: 198px;
+  height: 150px;
+  width: 1px;
 }
 
+.topNavBarVisual-container {
+  width: 100%;
+  height: 10vh;
+
+  position: absolute;
+}
+.borderSectionCover2 {
+  bottom: 0;
+  content: "";
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  bottom: 0;
+  left: 50vw;
+  margin-left: 198px;
+  height: 150px;
+  width: 1px;
+}
+
+.borderSectionCover3 {
+  content: "";
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  bottom: 0;
+  top: 3px;
+  left: 75vw;
+  margin-left: 285px;
+}
 .Navbar-Right-Container {
   margin-left: auto;
   margin-right: 50px;
@@ -123,10 +149,16 @@ u {
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
   position: relative;
+  transition: 0.5s;
+}
+
+.button-container:hover {
+  border-color: rgb(25, 182, 235);
 }
 .searchButton {
   margin-right: 10px;
 }
+
 .button-container::before {
   border: 3px solid white;
   content: "";
@@ -147,4 +179,43 @@ u {
   top: 35px;
   left: 41px;
   transform: rotate(141deg);
+}
+
+/* 
+HERO */
+.HeroTextSlideInContainer {
+  position: absolute;
+  top: 40%;
+  left: 4vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.HeroTextSlideInContainer2 {
+  position: absolute;
+  top: 40%;
+  left: 4vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Hero-TextTop {
+  margin-left: 15px;
+}
+
+.lineTwo {
+  margin-top: 20px;
+  height: 2px;
+}
+
+.lineThree {
+  margin-top: 20px;
+  height: 2px;
+}
+.Hero-whiteline {
+  background-color: white;
+  height: 3px;
+  width: 30px;
+  margin-left: 80px;
 }

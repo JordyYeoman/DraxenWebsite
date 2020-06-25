@@ -42,6 +42,7 @@ const HeroTextSlideIn = () => {
         center={"y"}
         height={26}
         width={"100%"}
+        whileHover={{ scale: 1.2, x: -10 }}
         className="HeroTextSlideInContainer"
         background={""}
         style={{

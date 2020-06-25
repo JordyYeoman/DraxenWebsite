@@ -1,14 +1,14 @@
 import React from "react";
 import Particles from "react-particles-js";
 import HeroTextSlideIn from "./sub-components/Hero-TextSlideIn";
-
-function mapStateToProps(state) {
-  return {};
-}
+import DataFetchMaster from "./sub-components/DataFetchMaster";
+import HeroEmailSub from "./sub-components/Hero-EmailSubscribe";
+import HeroHUDCircle from "./Hero-HUD-Circle";
 
 const Hero = () => {
   return (
     <div className="hero">
+      <DataFetchMaster />
       <HeroTextSlideIn />
       <Particles
         params={{
@@ -66,6 +66,8 @@ const Hero = () => {
           },
         }}
       />
+      <HeroHUDCircle />
+      <HeroEmailSub />
     </div>
   );
 };

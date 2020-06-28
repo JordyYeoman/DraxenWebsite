@@ -35,7 +35,7 @@ const HeroTextSlideIn = () => {
     },
   };
   const string = Array.from("The KING");
-  console.log(string);
+
   return (
     <motion.div>
       <motion.div

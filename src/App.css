@@ -5,6 +5,11 @@ ul {
   padding: 0;
 }
 
+:after,
+:before {
+  box-sizing: border-box;
+}
+
 a,
 u {
   text-decoration: none;
@@ -14,7 +19,8 @@ u {
 .App {
   text-align: center;
   height: 100%;
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-color: white;
   color: white;
   font-weight: 600;
   font-size: 12px;
@@ -61,7 +67,7 @@ u {
 }
 
 .backgroundImg {
-  height: 98vh;
+  height: 100vh;
   width: 100%;
   display: block;
   background-image: url(./assets/mechDraven.jpg);
@@ -227,15 +233,28 @@ Email Subscribe */
 
 .SubEmail-Container {
   position: absolute;
-
+  overflow: hidden;
   right: 0;
-  bottom: 0;
-  height: 10vh;
+  bottom: -25px;
+  height: 12vh;
   text-align: center;
   display: flex;
   align-items: center;
   width: 35vw;
-  clip-path: polygon(0 70%, 5% 100%, 100% 100%, 100% 0, 0 0);
+  /* clip-path: polygon(0 70%, 5% 100%, 100% 100%, 100% 0, 0 0); */
+  clip-path: polygon(
+    0 0,
+    26% 0%,
+    32% 12%,
+    76% 12%,
+    80% 0%,
+    100% 0%,
+    100% 100%,
+    5% 100%,
+    0% 100%,
+    0% 0%,
+    0% 0%
+  );
 }
 
 .SubEmail-Container::before {
@@ -249,12 +268,12 @@ Email Subscribe */
   position: absolute;
 
   background-color: #5db1ff;
-  pointer-events: none;
+
   clip-path: polygon(0 70%, 5% 100%, 100% 100%, 100% 0, 0 0);
 }
 
 .SubEmail-LogoContainer {
-  width: 25%;
+  width: 20%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -294,6 +313,13 @@ Email Subscribe */
   clip-path: polygon(0 0, 75% 0, 100% 25%, 100% 100%, 0 100%);
 }
 
+.frmField-Sub {
+  padding: 10px;
+  overflow-wrap: break-word;
+  width: 20%;
+  padding-right: 40px;
+}
+
 .subEmail-Hero-Container {
   display: flex;
   flex-direction: row;
@@ -318,4 +344,196 @@ HUD Circle Animation */
   bottom: 25px;
   left: 100px;
   padding-left: 5vw;
+}
+
+.BodySectionOne-Container {
+  background-color: white;
+  color: black;
+  height: 100vh;
+}
+/* 
+Modal Menu Overlay Pop Up Styles */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.5;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+}
+
+.modal {
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.25);
+  position: relative;
+  margin: 1.75rem auto;
+  border-radius: 3px;
+  max-width: 80vw;
+  padding: 2rem;
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: white;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-close-button {
+  position: absolute;
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  opacity: 0.8;
+  cursor: pointer;
+  border: none;
+}
+
+.notHoveredModalPopup {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.notHoveredModalPopup:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.modal ul li {
+  cursor: pointer;
+}
+
+/* 
+Body Section One */
+.BodySectionOne-Container {
+  margin-top: -20px;
+  position: relative;
+}
+
+.bodySectionLineTwo {
+  position: absolute;
+  padding-left: 4vw;
+  height: 100%;
+}
+.BodSecOne-BkgroundTxt {
+  font-size: 20vw;
+  font-weight: 600;
+  margin-top: 2vh;
+  text-shadow: -1px -1px 0 #a5a5a5, 1px -1px 0 #a5a5a5, -1px 1px 0 #a5a5a5,
+    1px 1px 0 #a5a5a5;
+  color: white;
+  font-family: "BlenderProMedium";
+  font-style: italic;
+  letter-spacing: 3vw;
+}
+
+.BodSecOne-BkgroundTxt-Mini {
+  position: absolute;
+  font-size: 15px;
+  transform: rotate(-78deg);
+  letter-spacing: 2px;
+  color: black;
+  text-shadow: none;
+  right: 6vw;
+  top: 8vw;
+  width: auto;
+}
+
+.BodSecOne-MainImage-Container {
+  display: block;
+  position: relative;
+  max-width: 700px;
+  min-width: 400px;
+}
+
+.BodSecOne-MainImage {
+  z-index: 2;
+  position: relative;
+}
+
+.BodSecOne-MainImage-Container::before {
+  content: " ";
+  position: absolute;
+  background-color: black;
+  height: 30%;
+  width: 30%;
+  display: block;
+  z-index: 1;
+  right: -12px;
+  top: -12px;
+}
+.BodSecOne-MainImage-Container::after {
+  content: " ";
+  position: absolute;
+  background-color: black;
+  height: 15%;
+  width: 15%;
+  display: block;
+  z-index: 1;
+  left: -7px;
+  bottom: -7px;
+}
+
+.BodSecOne-ContentContainer {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  margin-top: -95px;
+}
+
+.BodSecOne-ContentContainer .titlePara {
+  font-size: 5rem;
+  font-family: "TungstenBold";
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 60px;
+  text-align: left;
+  padding-left: 150px;
+  z-index: 2;
+  position: relative;
+}
+
+.BodSecOne-ContentContainer-TextLeft {
+  display: flex;
+  padding-left: 200px;
+  margin-top: 2vw;
+}
+
+.BodSecOne-ContentContainer-TextLeft .line {
+  height: 120%;
+  position: absolute;
+  margin-top: -100px;
+  border-left: 2px solid #5db1ff;
+  z-index: 1;
+  left: 0;
+}
+
+.BodSecOne-ContentContainer-TextLeft .text {
+  padding-left: 4px;
+  text-align: left;
+  line-height: 22px;
+  font-size: 14px;
+  z-index: 2;
+  position: relative;
+}
+
+.BodSecOne-ContentContainer-TextLeft .paraCont {
+  padding-right: 10vw;
+  width: 65%;
+  position: relative;
 }

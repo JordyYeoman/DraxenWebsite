@@ -6,11 +6,11 @@ import NavbarMenuLi from "./Navbar-menu-li";
 import TopNavBarVisual from "./topSectionNavbar";
 
 const NavbarMenu = () => {
-  const [circleContainer, setCircleContainer] = useState({
-    x: 0,
-    y: 0,
-    pos: 0,
-  });
+  // const [circleContainer, setCircleContainer] = useState({
+  //   x: 0,
+  //   y: 0,
+  //   pos: 0,
+  // });
 
   const circleProperties = {
     width: 30,
@@ -91,14 +91,14 @@ const NavbarMenu = () => {
       "px";
   });
 
-  const containerRef = useCallback((node) => {
-    if (node !== null) {
-      // setHeight(node.getBoundingClientRect().height);
-      const input = node.getBoundingClientRect();
-      // Update State with new position
-      setCircleContainer({ ...circleContainer, x: input.x, y: input.y });
-    }
-  }, []);
+  // const containerRef = useCallback((node) => {
+  //   if (node !== null) {
+  //     // setHeight(node.getBoundingClientRect().height);
+  //     const input = node.getBoundingClientRect();
+  //     // Update State with new position
+  //     setCircleContainer({ ...circleContainer, x: input.x, y: input.y });
+  //   }
+  // }, []);
 
   //const [circleLeft, setCircleLeft] = useState(0);
   //const circleRef1 = useRef(0);
@@ -110,7 +110,7 @@ const NavbarMenu = () => {
       <motion.div className="NavbarMenu">
         <NavLeft />
         <motion.ul
-          ref={containerRef}
+          // ref={containerRef}
           className="NavbarMenuUl"
           // onClick={() => {
           //   console.log(top);
@@ -124,7 +124,7 @@ const NavbarMenu = () => {
           transition={{ duration: 0.5 }}
         >
           <NavbarMenuLi
-            circleContainer={circleContainer}
+            // circleContainer={circleContainer}
             rotateMenuPos={rotateMenuPos}
             circleProperties={circleProperties}
             setRotation={setRotation}

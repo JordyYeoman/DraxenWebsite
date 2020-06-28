@@ -5,6 +5,18 @@
 }
 
 @font-face {
+  font-family: "BlenderProBold";
+  src: local("BlenderProBold"),
+    url(./assets/fonts/BlenderProBold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "TungstenBold";
+  src: local("Tungsten-Bold"),
+    url(./assets/fonts/Tungsten-Bold.ttf) format("truetype");
+}
+
+@font-face {
   font-family: "Oxanium-Light";
   src: local("Oxanium-Light"),
     url(./assets/fonts/Oxanium-Light.ttf) format("truetype");

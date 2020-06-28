@@ -1,10 +1,14 @@
 import React from "react";
 import Lines from "./components/lines";
 import Hero from "./components/Hero";
+import Modal from "./components/Modal";
+import useModal from "./components/hooks/useModal";
 import Navbar from "./components/Navbar";
+import BodySectionOne from "./components/BodySectionOne";
 import "./App.css";
 
 function App() {
+  const { isShowing, toggle } = useModal();
   return (
     <div className="App">
       <span className="backgroundImg">
@@ -12,8 +16,17 @@ function App() {
         <Lines part="svg-LineTwo" pathDelay={0.82} pathOffset={0.4} />
         <Lines part="svg-LineThree" pathDelay={0.6} pathOffset={0.8} />
         <Navbar />
+        <button
+          style={{ zIndex: 4, position: "absolute", left: 0 }}
+          onClick={toggle}
+        >
+          Click for popup
+        </button>
+        <Modal isShowing={isShowing} hide={toggle} />
         <Hero className="hero" />
       </span>
+      <BodySectionOne />
+
       <div>Hello div</div>
       <footer>Hello footer</footer>
     </div>

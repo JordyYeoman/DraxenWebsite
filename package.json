@@ -12,6 +12,7 @@
     "react-hook-form": "^5.7.2",
     "react-icons": "^3.10.0",
     "react-particles-js": "^3.2.1",
+    "react-recipes": "^1.0.2",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1"
   },

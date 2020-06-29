@@ -5,6 +5,7 @@ import Modal from "./components/Modal";
 import useModal from "./components/hooks/useModal";
 import Navbar from "./components/Navbar";
 import BodySectionOne from "./components/BodySectionOne";
+import BodySectionTwo from "./components/BodySectionTwo";
 import "./App.css";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Hero className="hero" />
       </span>
       <BodySectionOne />
+      <BodySectionTwo />
 
       <div>Hello div</div>
       <footer>Hello footer</footer>

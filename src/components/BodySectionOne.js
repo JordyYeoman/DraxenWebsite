@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 import dravenImage from "../assets/img/dravenleague2.jpeg";
 
 const pathVariant2 = {
@@ -19,6 +19,29 @@ const pathVariant2 = {
     },
   },
 };
+const variant0 = {
+  initial: { right: -20, opacity: 0 },
+  animate: {
+    right: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      delay: 2,
+    },
+  },
+};
+
+const variant1 = {
+  initial: { left: -20, opacity: 0 },
+  animate: {
+    left: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      delay: 1.5,
+    },
+  },
+};
 
 const variant2 = {
   initial: { top: -20, opacity: 0 },
@@ -33,6 +56,29 @@ const variant2 = {
 };
 
 const BodySectionOne = () => {
+  const { scrollYProgress } = useViewportScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  const contentXOffset = useTransform(scrollYProgress, [0, 1], [200, 0]);
+
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    window.onscroll = () => {
+      setOffset(window.pageYOffset);
+      if (scale.current > 0.6) {
+        console.log("In viewport");
+      } else {
+        console.log("Not in viewport");
+      }
+    };
+  }, []);
+
+  console.log(offset);
+
+  // if scrollY is > 0.6 (number can change, this
+  // is just the value right now) -> change
+  // animation state of variables from hidden to true
+
   return (
     <div className="BodySectionOne-Container">
       <motion.div className="bodySectionLineTwo">
@@ -60,23 +106,24 @@ const BodySectionOne = () => {
       </div>
       <div className="BodSecOne-ContentContainer">
         <div>
-          <motion.p
-            variants={variant2}
-            initial="initial"
-            animate="animate"
-            className="titlePara"
-          >
-            Places to go,<br></br> me to see...
-          </motion.p>
+          {scale.current > 0.6 ? (
+            <motion.p
+              variants={variant2}
+              initial="initial"
+              animate="animate"
+              className="titlePara"
+            >
+              Places to go,<br></br> me to see...
+            </motion.p>
+          ) : null}
         </div>
         <div className="BodSecOne-ContentContainer-TextLeft">
           <div className="paraCont">
             <span className="line"></span>
             <motion.p
-              variants={variant2}
+              variants={variant1}
               initial="initial"
-              animate="animate"
-              transition={{ delay: 2 }}
+              animate={scale.current > 0.6 ? "animate" : null}
               className="text"
             >
               Well, the way they make shows is, they make one show. That show's
@@ -91,7 +138,12 @@ const BodySectionOne = () => {
               popular gun in American crime. Like they're actually proud of that
               shit.
             </motion.p>
-            <p className="text">
+            <motion.p
+              variants={variant0}
+              initial="initial"
+              animate={scale.current > 0.6 ? "animate" : null}
+              className="text"
+            >
               Well, the way they make shows is, they make one show. That show's
               called a pilot. Then they show that show to the people who make
               shows, and on the strength of that one show they decide if they're
@@ -103,10 +155,15 @@ const BodySectionOne = () => {
               actually says that in the little book that comes with it: the most
               popular gun in American crime. Like they're actually proud of that
               shit.
-            </p>
+            </motion.p>
           </div>
 
-          <div className="BodSecOne-MainImage-Container">
+          <motion.div
+            style={{
+              x: contentXOffset,
+            }}
+            className="BodSecOne-MainImage-Container"
+          >
             <img
               src={dravenImage}
               alt="Champion Draven - League of legends"
@@ -114,7 +171,7 @@ const BodySectionOne = () => {
               width="100%"
               className="BodSecOne-MainImage"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

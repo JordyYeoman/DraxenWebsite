@@ -238,6 +238,7 @@ Email Subscribe */
   bottom: -25px;
   height: 12vh;
   text-align: center;
+  z-index: 2;
   display: flex;
   align-items: center;
   width: 35vw;
@@ -350,6 +351,7 @@ HUD Circle Animation */
   background-color: white;
   color: black;
   height: 100vh;
+  overflow-x: hidden;
 }
 /* 
 Modal Menu Overlay Pop Up Styles */
@@ -460,6 +462,8 @@ Body Section One */
   position: relative;
   max-width: 700px;
   min-width: 400px;
+  min-height: 200px;
+  max-height: 400px;
 }
 
 .BodSecOne-MainImage {

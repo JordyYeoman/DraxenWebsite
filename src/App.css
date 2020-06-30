@@ -541,3 +541,69 @@ Body Section One */
   width: 65%;
   position: relative;
 }
+
+.BodySectionTwo-Container {
+  height: 100vh;
+  color: lightblue;
+  display: grid;
+  align-items: center;
+  font-size: 5rem;
+  grid-gap: 10px;
+  border-top: 1px solid grey;
+  grid-template-columns:
+    minmax(300px, 2fr) minmax(100px, 1.2fr)
+    minmax(100px, 1.2fr);
+  grid-template-rows: minmax(325px, 1.5fr) minmax(325px, 1.5fr);
+}
+/* 
+Responsive Youtube Player  */
+.ready-player-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.ready-react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ready-react-player-line1color-complete {
+  width: 100%;
+  display: block;
+  height: 2px;
+  background-color: #5db1ff;
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+}
+
+.ready-react-player-line2color-complete {
+  width: 100%;
+  display: block;
+  height: 2px;
+  background-color: #5db1ff;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+}
+
+.ready-react-player-line1color-notcomplete {
+  width: 100%;
+  display: block;
+  height: 2px;
+  background-color: white;
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+}
+
+.ready-react-player-line2color-notcomplete {
+  width: 100%;
+  display: block;
+  height: 2px;
+  background-color: white;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+}

@@ -58,7 +58,7 @@ const variant2 = {
 const BodySectionOne = () => {
   const { scrollYProgress } = useViewportScroll();
   const scale = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
-  const contentXOffset = useTransform(scrollYProgress, [0, 1], [200, 0]);
+  const contentXOffset = useTransform(scrollYProgress, [0, 0.5], [200, 0]);
 
   const [offset, setOffset] = useState(0);
 
@@ -106,16 +106,14 @@ const BodySectionOne = () => {
       </div>
       <div className="BodSecOne-ContentContainer">
         <div>
-          {scale.current > 0.6 ? (
-            <motion.p
-              variants={variant2}
-              initial="initial"
-              animate="animate"
-              className="titlePara"
-            >
-              Places to go,<br></br> me to see...
-            </motion.p>
-          ) : null}
+          <motion.p
+            variants={variant2}
+            initial="initial"
+            animate={scale.current > 0.6 ? "animate" : "initial"}
+            className="titlePara"
+          >
+            Places to go,<br></br> me to see...
+          </motion.p>
         </div>
         <div className="BodSecOne-ContentContainer-TextLeft">
           <div className="paraCont">

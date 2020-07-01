@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactPlayer from "react-player/youtube";
+import motion from "framer-motion";
 
 const ResponsivePlayer = ({ url, onProgress }) => {
   const [watchComplete, setWatchComplete] = useState(0);
@@ -12,6 +13,9 @@ const ResponsivePlayer = ({ url, onProgress }) => {
 
   return (
     <div className="ready-player-wrapper">
+      <div className="ready-player-wrapper-border"></div>
+      <span className="ready-player-wrapper-layer1"></span>
+      <span className="ready-player-wrapper-layer2"></span>
       <span
         className={
           watchComplete

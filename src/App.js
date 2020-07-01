@@ -6,6 +6,7 @@ import useModal from "./components/hooks/useModal";
 import Navbar from "./components/Navbar";
 import BodySectionOne from "./components/BodySectionOne";
 import BodySectionTwo from "./components/BodySectionTwo";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
@@ -28,9 +29,7 @@ function App() {
       </span>
       <BodySectionOne />
       <BodySectionTwo />
-
-      <div>Hello div</div>
-      <footer>Hello footer</footer>
+      <Footer />
     </div>
   );
 }

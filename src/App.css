@@ -349,7 +349,8 @@ HUD Circle Animation */
 
 .BodySectionOne-Container {
   color: black;
-  height: 100vh;
+  height: auto;
+  padding-bottom: 10px;
   overflow-x: hidden;
 }
 /* 
@@ -845,6 +846,56 @@ Responsive Youtube Player  */
   bottom: 150px;
   opacity: 0.1;
 }
+/* 
+##################### BODY SECTION THREE ###################### */
+.BodySectionThree-Container {
+  height: 60vh;
+}
+.BodySecThree-ContentContainer {
+  display: flex;
+}
+
+.sDra-img {
+  max-width: 500px;
+  padding-left: 100px;
+  z-index: 2;
+  position: relative;
+}
+
+.sDra-imgContainer {
+  position: relative;
+}
+
+.sDra-imgContainer-Line {
+  height: 1px;
+  width: 50%;
+  bottom: 4px;
+  position: absolute;
+  left: 40%;
+  background-color: rgb(82, 82, 82);
+}
+
+.BodySecThree-Txt {
+  color: black;
+  font-size: 14px;
+  padding-right: 50px;
+  text-align: left;
+}
+
+.BG-HUD-Circle {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  transform: rotate(-90deg);
+  left: -50px;
+}
+
+.BG-HUD-Circle .layer1 {
+  position: absolute;
+}
+
+/* 
+##################### FOOTER ###################### */
 
 .Footer-Container {
   display: grid;

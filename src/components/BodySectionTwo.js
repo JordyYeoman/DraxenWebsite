@@ -6,7 +6,7 @@ import dravensilhoutte from "../assets/img/DraveLeagueoflegendsnumerounoadc.png"
 const BodySectionTwo = () => {
   return (
     <div className="BodySectionTwo-Container">
-      <ResponsivePlayer url="https://www.youtube.com/watch?v=DhkTYlQAUa8&t=416s" />
+      <ResponsivePlayer url="https://www.youtube.com/watch?v=wo1lTHtIwBw" />
       <div className="BodySectionTwo-MiddleTop-Container">
         <div className="BodySectionTwo-MiddleTop-Txt">
           <h2>NO MAN</h2>

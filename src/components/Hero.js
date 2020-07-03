@@ -4,6 +4,7 @@ import HeroTextSlideIn from "./sub-components/Hero-TextSlideIn";
 import DataFetchMaster from "./sub-components/DataFetchMaster";
 import HeroEmailSub from "./sub-components/Hero-EmailSubscribe";
 import HeroHUDCircle from "./Hero-HUD-Circle";
+import HeroWindow from "./HeroWindow";
 
 const Hero = () => {
   return (
@@ -68,6 +69,7 @@ const Hero = () => {
       />
       <HeroHUDCircle />
       <HeroEmailSub />
+      <HeroWindow />
     </div>
   );
 };

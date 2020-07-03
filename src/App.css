@@ -61,7 +61,7 @@ u {
 .hero {
   display: block;
   height: 90vh;
-
+  position: relative;
   /* background-image: url(./assets/mechDraven.jpg); */
   background-size: cover;
 }
@@ -192,6 +192,29 @@ u {
 
 /* 
 HERO */
+
+.HeroWindow-Container {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 20%;
+  right: 10%;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.ready-player-wrapper2 {
+  height: 100%;
+
+  padding-top: 56.25%;
+  /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player2 {
+  position: absolute;
+  top: 8%;
+  left: 0;
+}
+
 .HeroTextSlideInContainer {
   position: absolute;
   top: 40%;

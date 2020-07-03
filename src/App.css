@@ -902,6 +902,7 @@ Responsive Youtube Player  */
   color: black;
   font-size: 14px;
   padding-right: 50px;
+  margin-top: -100px;
   text-align: left;
 }
 
@@ -915,6 +916,14 @@ Responsive Youtube Player  */
 
 .BG-HUD-Circle .layer1 {
   position: absolute;
+}
+.draven-build-paths--list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.draven-build-paths {
+  cursor: pointer;
 }
 
 /* 

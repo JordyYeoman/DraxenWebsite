@@ -16,14 +16,28 @@ const BodySectionThree = () => {
         </div>
         <div className="BodySecThree-Txt">
           <p>
-            Now that there is the Tec-9, a crappy spray gun from South Miami.
-            This gun is advertised as the most popular gun in American crime. Do
-            you believe that shit? It actually says that in the little book that
-            comes with it: the most popular gun in American crime. Like they're
-            actually proud of that shit.
+            <h2>DRAVEN BUILDS:</h2>
+            <h4>Subtle?....I dont do subtle</h4>
+            Blow the dust off your axes, prepare your finger for 'W' key spam.
+            It's time we get into the muck and theory-craft the sh*t out of the
+            best builds in season 10.
+            <br></br>
+            <br></br>
+            We all know, Draven is struggling down in the bottom lane. Lets
+            bring our boy back with some real data.
           </p>
+          <div className="BodySecThree-Img2">
+            <div>
+              <ul className="draven-build-paths--list">
+                <li className="draven-build-paths">Lethality</li>
+                <li className="draven-build-paths">Crit</li>
+                <li className="draven-build-paths">Hybrid</li>
+                <li className="draven-build-paths">Tank</li>
+                <li className="draven-build-paths">Survivor</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className="BodySecThree-Img2">Hello</div>
       </div>
     </div>
   );

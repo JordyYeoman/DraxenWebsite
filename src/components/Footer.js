@@ -7,6 +7,8 @@ const Footer = () => {
     <div className="Footer-Container">
       <div className="Footer-Column-Container">
         Learn
+        <br></br>
+        <div style={{ fontSize: "10px" }}>(Coming Soon)</div>
         <img
           className="FooterColumn1img"
           src={DraxenThumbsUp}

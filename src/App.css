@@ -926,6 +926,31 @@ Responsive Youtube Player  */
   cursor: pointer;
 }
 
+.Draven-item-build {
+  display: flex;
+  flex-direction: column;
+}
+
+.Draven-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.Draven-items:hover {
+  color: rgb(89, 177, 248);
+}
+
+.Draven-items-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.Draven-items img {
+  width: fit-content;
+}
+
 /* 
 ##################### FOOTER ###################### */
 
@@ -939,6 +964,7 @@ Responsive Youtube Player  */
 
 .Footer-Column-Container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;

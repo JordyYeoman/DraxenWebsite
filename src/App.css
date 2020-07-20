@@ -483,7 +483,7 @@ Body Section One */
 .BodSecOne-MainImage-Container {
   display: block;
   position: relative;
-  max-width: 700px;
+  max-width: 525px;
   min-width: 400px;
   min-height: 200px;
   max-height: 400px;
@@ -983,4 +983,40 @@ Responsive Youtube Player  */
   max-height: 10vh;
   position: absolute;
   cursor: pointer;
+}
+
+/* 
+Mobile Responsive Code */
+@media (max-width: 420px) {
+  .Navbar-Left-Container {
+    margin-left: 20px;
+  }
+  .Navbar-Right-Container {
+    margin-right: 20px;
+  }
+  .searchButton {
+    display: none;
+  }
+  .svg-LineTwo {
+    display: none;
+  }
+  .mouseArea {
+    display: none;
+  }
+  .SubEmail-Container {
+    bottom: -14px;
+    width: 100vw;
+  }
+  .HeroWindow-Container {
+    width: 95%;
+    height: 50%;
+    top: 30%;
+    right: 2.5%;
+  }
+  .Footer-Container {
+    grid-template-columns: repeat(5, minmax(70px, 1fr));
+  }
+  .BodySectionThree-Container {
+    overflow: hidden;
+  }
 }

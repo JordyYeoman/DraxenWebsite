@@ -6,11 +6,11 @@ import HeroEmailSub from "./sub-components/Hero-EmailSubscribe";
 import HeroHUDCircle from "./Hero-HUD-Circle";
 import HeroWindow from "./HeroWindow";
 
-const Hero = () => {
+const Hero = (props) => {
   return (
     <div className="hero">
       <DataFetchMaster />
-      <HeroTextSlideIn />
+      <HeroTextSlideIn isDesktop={props.isDesktop} />
       <Particles
         params={{
           particles: {
@@ -69,7 +69,7 @@ const Hero = () => {
       />
       <HeroHUDCircle />
       <HeroEmailSub />
-      <HeroWindow />
+      <HeroWindow isDesktop={props.isDesktop} />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Lines from "./components/lines";
 import Hero from "./components/Hero";
 import Modal from "./components/Modal";
@@ -12,6 +12,18 @@ import "./App.css";
 
 function App() {
   const { isShowing, toggle } = useModal();
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 1450);
+
+  const updateMedia = () => {
+    setDesktop(window.innerWidth > 1450);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    console.log(isDesktop);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
   return (
     <div className="App">
       <span className="backgroundImg">
@@ -26,7 +38,7 @@ function App() {
           Click for popup
         </button>
         <Modal isShowing={isShowing} hide={toggle} />
-        <Hero className="hero" />
+        <Hero className="hero" isDesktop={isDesktop} />
       </span>
       <BodySectionOne />
       <BodySectionTwo />

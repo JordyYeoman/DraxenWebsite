@@ -3,14 +3,22 @@ import { motion } from "framer-motion";
 import { AiOutlineMail } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 
-const HeroEmailSub = () => {
+const HeroEmailSub = (props) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
+
+  let emailSubWidth = null;
+
+  if (props.isMobile) {
+    emailSubWidth = "100";
+  } else {
+    emailSubWidth = "35";
+  }
 
   return (
     <motion.div
       initial={{ width: 0 }}
-      animate={{ width: "35vw" }}
+      animate={{ width: `${emailSubWidth}vw` }}
       transition={{ duration: 0.6, delay: 1.5 }}
       className="SubEmail-Container"
     >
@@ -27,7 +35,6 @@ const HeroEmailSub = () => {
           >
             <AiOutlineMail
               style={{
-                fontSize: 36,
                 verticalAlign: "middle",
               }}
             />

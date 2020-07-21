@@ -295,6 +295,9 @@ Email Subscribe */
 
   clip-path: polygon(0 70%, 5% 100%, 100% 100%, 100% 0, 0 0);
 }
+div.SubEmail-LogoContainer svg {
+  font-size: 40px;
+}
 
 .SubEmail-LogoContainer {
   width: 20%;
@@ -991,6 +994,13 @@ Mobile Responsive Code */
   .Navbar-Left-Container {
     margin-left: 20px;
   }
+  .hero {
+    height: 80vh;
+  }
+  .backgroundImg {
+    background-position: 66% 95%;
+    height: 90vh;
+  }
   .Navbar-Right-Container {
     margin-right: 20px;
   }
@@ -1000,12 +1010,32 @@ Mobile Responsive Code */
   .svg-LineTwo {
     display: none;
   }
+  .loadingStateText {
+    text-align: right;
+    padding-right: 20vw;
+  }
   .mouseArea {
     display: none;
   }
   .SubEmail-Container {
     bottom: -14px;
+    padding-right: 5px;
     width: 100vw;
+  }
+  .subEmail-Hero-Container {
+    padding-right: 25px;
+    padding-left: 14px;
+  }
+  div.SubEmail-LogoContainer svg {
+    font-size: 25px;
+    padding-right: 10px;
+  }
+  .frmField-Sub {
+    padding-right: 22px;
+  }
+  .HeroTextSlideInContainer,
+  .HeroTextSlideInContainer2 {
+    top: 67%;
   }
   .HeroWindow-Container {
     width: 95%;
@@ -1018,5 +1048,58 @@ Mobile Responsive Code */
   }
   .BodySectionThree-Container {
     overflow: hidden;
+  }
+  .BodySectionOne-Container {
+    margin-top: 30px;
+  }
+  .BodSecOne-BkgroundTxt {
+    font-size: 25vw;
+  }
+  .BodSecOne-BkgroundTxt-Mini {
+    position: absolute;
+    font-size: 8px;
+    transform: rotate(-76deg);
+    letter-spacing: 2px;
+    color: black;
+    text-shadow: none;
+    right: 9vw;
+    top: 18vw;
+    width: auto;
+  }
+  .bodySectionLineTwo {
+    display: none;
+  }
+  .BodSecOne-ContentContainer-TextLeft {
+    padding-left: 0px;
+  }
+  .BodSecOne-ContentContainer-TextLeft .paraCont {
+    padding-right: 0;
+    width: 90%;
+  }
+  .BodSecOne-MainImage-Container {
+    position: absolute;
+  }
+  .BodSecOne-ContentContainer .titlePara {
+    padding-left: 0;
+    width: 100%;
+    font-size: 4rem;
+  }
+  .BodSecOne-ContentContainer {
+    margin-top: -12px;
+  }
+  #root
+    > div
+    > div.BodySectionOne-Container
+    > div.BodSecOne-ContentContainer
+    > div.BodSecOne-ContentContainer-TextLeft
+    > div.paraCont
+    > p:nth-child(2) {
+    margin-bottom: 363px;
+  }
+  .BodSecOne-MainImage-Container {
+    margin-top: 95%;
+  }
+  .BodSecOne-ContentContainer-TextLeft .line {
+    height: 108%;
   }
 }

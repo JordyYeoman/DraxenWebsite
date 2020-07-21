@@ -66,6 +66,22 @@ const NavbarMenuLi = (props) => {
     greenCircle: false,
   });
 
+  // if (props.isShowing) {
+  //   setIsOpen({
+  //     whiteCircle: true,
+  //     pinkCircle: false,
+  //     orangeCircle: false,
+  //     greenCircle: false,
+  //   });
+  // } else {
+  //   setIsOpen({
+  //     whiteCircle: false,
+  //     pinkCircle: false,
+  //     orangeCircle: false,
+  //     greenCircle: false,
+  //   });
+  // }
+
   //const [isOpen, toggleOpen] = useCycle(false, true);
   const liContainerRef1 = useRef(0);
   const liContainerRef2 = useRef(0);
@@ -85,6 +101,8 @@ const NavbarMenuLi = (props) => {
         onClick={() => {
           console.log("White Clicked");
           props.setRotation(0);
+          props.toggle();
+
           //reCalcPos();
           //   const { offsetTop } = props.inputRef.current;
           //   const { offsetLeft } = props.inputRef.current;

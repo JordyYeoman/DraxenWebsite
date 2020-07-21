@@ -5,7 +5,7 @@ import NavLeft from "./Navbar-menu-left";
 import NavbarMenuLi from "./Navbar-menu-li";
 import TopNavBarVisual from "./topSectionNavbar";
 
-const NavbarMenu = () => {
+const NavbarMenu = (props) => {
   // const [circleContainer, setCircleContainer] = useState({
   //   x: 0,
   //   y: 0,
@@ -130,6 +130,8 @@ const NavbarMenu = () => {
             setRotation={setRotation}
             rotation={rotation}
             onTap={onTap}
+            toggle={props.toggle}
+            isShowing={props.isShowing}
           />
         </motion.ul>
         <NavRight />

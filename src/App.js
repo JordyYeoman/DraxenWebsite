@@ -12,15 +12,15 @@ import "./App.css";
 
 function App() {
   const { isShowing, toggle } = useModal();
-  const [isDesktop, setDesktop] = useState(window.innerWidth > 1450);
+  const [isMobile, setMobile] = useState(window.innerWidth < 421);
 
   const updateMedia = () => {
-    setDesktop(window.innerWidth > 1450);
+    setMobile(window.innerWidth < 421);
   };
 
   useEffect(() => {
     window.addEventListener("resize", updateMedia);
-    console.log(isDesktop);
+    console.log(isMobile);
     return () => window.removeEventListener("resize", updateMedia);
   });
 
@@ -30,15 +30,15 @@ function App() {
         <Lines part="svg-LineOne" pathDelay={0.4} pathOffset={0.2} />
         <Lines part="svg-LineTwo" pathDelay={0.82} pathOffset={0.4} />
         <Lines part="svg-LineThree" pathDelay={0.6} pathOffset={0.8} />
-        <Navbar />
-        <button
+        <Navbar toggle={toggle} isShowing={isShowing} />
+        {/* <button
           style={{ zIndex: 4, position: "absolute", left: 0 }}
           onClick={toggle}
         >
           Click for popup
-        </button>
+        </button> */}
         <Modal isShowing={isShowing} hide={toggle} />
-        <Hero className="hero" isDesktop={isDesktop} />
+        <Hero className="hero" isMobile={isMobile} />
       </span>
       <BodySectionOne />
       <BodySectionTwo />

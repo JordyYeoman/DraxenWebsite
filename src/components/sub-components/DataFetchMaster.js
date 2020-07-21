@@ -23,6 +23,7 @@ const DataFetchMaster = () => {
           animate={{ opacity: 1 }}
           transition={{ loop: Infinity, ease: "easeInOut", duration: 1 }}
           exit={{ opacity: 0, height: 12, width: 0 }}
+          className="loadingStateText"
         >
           Loading...
         </motion.h2>
@@ -36,6 +37,7 @@ const DataFetchMaster = () => {
         initial={{ height: 2, opacity: 0 }}
         animate={{ height: "auto", opacity: 1 }}
         transition={{ duration: 2 }}
+        className="loadingStateText"
       >
         {name}
       </motion.h2>

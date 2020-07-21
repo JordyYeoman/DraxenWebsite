@@ -10,7 +10,7 @@ const Hero = (props) => {
   return (
     <div className="hero">
       <DataFetchMaster />
-      <HeroTextSlideIn isDesktop={props.isDesktop} />
+      <HeroTextSlideIn isMobile={props.isMobile} />
       <Particles
         params={{
           particles: {
@@ -68,8 +68,8 @@ const Hero = (props) => {
         }}
       />
       <HeroHUDCircle />
-      <HeroEmailSub />
-      <HeroWindow isDesktop={props.isDesktop} />
+      <HeroEmailSub isMobile={props.isMobile} />
+      <HeroWindow isMobile={props.isMobile} />
     </div>
   );
 };

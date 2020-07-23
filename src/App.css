@@ -377,7 +377,7 @@ HUD Circle Animation */
   color: black;
   height: auto;
   padding-bottom: 10px;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 /* 
 Modal Menu Overlay Pop Up Styles */
@@ -923,6 +923,7 @@ Responsive Youtube Player  */
 .draven-build-paths--list {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
 
 .draven-build-paths {
@@ -939,6 +940,8 @@ Responsive Youtube Player  */
   flex-direction: column;
   align-items: center;
   transition: 0.5s;
+  padding-right: 14px;
+  text-align: center;
 }
 
 .Draven-items:hover {
@@ -952,6 +955,17 @@ Responsive Youtube Player  */
 
 .Draven-items img {
   width: fit-content;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  box-shadow: 3px 3px 5px #666666, -3px -3px 5px #ffffff;
+  margin-bottom: 5px;
+  transition: box-shadow 0.4s;
+}
+
+.Draven-items img:hover {
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 0 0 #b8b8b8, 0 0 0 #ffffff;
 }
 
 /* 

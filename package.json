@@ -14,7 +14,7 @@
     "react-particles-js": "^3.2.1",
     "react-player": "^2.4.0",
     "react-recipes": "^1.0.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "styled-components": "^5.1.1"
   },
   "scripts": {
